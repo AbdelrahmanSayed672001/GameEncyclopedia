@@ -1,0 +1,77 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+
+
+@model User
+
+
+<html>
+    <head>
+        <title>Games Encyclopedia-Register</title>
+        <link rel="stylesheet" href="~/css/loginForm.css"/>
+        <link rel="shortcut icon" href="~/css/Icon.png">
+    </head>
+    
+    <body>
+        
+        <div class="wrapper">
+        <div class="logoRegister">
+            <img src="~/css/83496ac248c0b3fc22a70c74e8c75746.png" alt="">
+        </div>
+        <div class="text-center mt-4 name">
+            Sign up
+        </div>
+        <form class="p-3 mt-3" asp-action="UserRegister" enctype="multipart/form-data">
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                <input type="text" asp-for="Name" placeholder="Username" required="">
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="password" asp-for="Password" placeholder="Password" required="">
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="text" asp-for="PhoneNumber" placeholder="Phone" required="">
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="text" asp-for="Age" placeholder="Age" required="">
+            </div>
+
+            <p style="font-size:20px;"> Profile Img
+                <input style="margin-top:5px;margin-left:10px;padding-bottom:5px;" asp-for="img" type="file" placeholder="insert photo">
+            </p>
+            <p style="font-size:20px;"> Front National ID
+                <input style="margin-top:5px;margin-left:10px;padding-bottom:5px;" asp-for="frontImg" type="file" placeholder="insert photo">
+            </p>
+            <p style="font-size:20px;"> Back National ID
+                <input style="margin-top:5px;margin-left:10px;padding-bottom:5px;" asp-for="backImg" type="file" placeholder="insert photo">
+            </p>
+            
+            <button class="btn mt-3">Submit</button>
+        </form>
+        <div class="text-center fs-6">
+              
+                 <a href="/Home">Sign in</a>
+            </div>
+    </div>
+
+    </body>
+
+</html>
+
+
+
+@{
+    if (TempData["Register Error"]!=null)
+    {
+    <script>
+                alert("@TempData["Register Error"]")
+
+    </script>
+        
+    }
+}

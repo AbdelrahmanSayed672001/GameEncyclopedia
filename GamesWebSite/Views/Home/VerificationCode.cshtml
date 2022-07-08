@@ -1,0 +1,57 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model OTP
+
+<html>
+    <head>
+        <title>Games Encyclopedia-Register</title>
+        <link rel="stylesheet" href="~/css/loginForm.css"/>
+        <link rel="shortcut icon" href="~/css/Icon.png">
+    </head>
+    
+    <body>
+
+
+        
+        <div class="wrapper">
+            
+            <form class="p-3 mt-3" asp-action="SendOTP" >
+                
+                <div class="form-field d-flex align-items-center">
+                    <span class="fas fa-key"></span>
+                    
+                    <input type="text" asp-for="VerifyCode" placeholder="xxxxx" required="">
+                </div>
+
+           
+                <button class="btn mt-3">Verify</button>
+            </form>
+        
+        </div>
+
+    </body>
+
+</html>
+
+
+@{
+    if (TempData["CorrectCode"] != null)
+    {
+        <script>
+            alert("@TempData["CorrectCode"]")    
+
+        </script>
+    }
+    if (TempData["IncorrectCode"]!=null)
+    {
+      <script>
+        alert("@TempData["IncorrectCode"]")    
+
+      </script>
+    }
+    
+}
+
+
